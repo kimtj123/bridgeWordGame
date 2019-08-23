@@ -29,5 +29,12 @@
     font-size : 3vh;
     width : 6vw;
     position: absolute;
-​
 }
+.blocks{
+    width: 100px;
+    height: 50px;
+    background: red;
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+  }
