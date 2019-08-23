@@ -1,34 +1,75 @@
 #title
 {
     text-align: center;
-    font-size: 6vh;
+    font-size: 50px;
     font-weight: bold;
 }
 #main
 {
     border: solid;
-    height: 70vh;    
-    margin-left: 10vw;
-    margin-top: 1vh;
+    height: 700px;    
+    margin-left: 200px;
     text-align: center;
-    width : 80vw;    
+    width : 1500px;    
+
 }
 #footer
 {
     margin-top : 2vh;
     text-align: center;
 }
+
+#header
+{
+    margin-left: 200px;
+    width: 1600px;
+    height: 100px;
+}
+#header div
+{
+    display: inline-block;
+    width: 500px;
+    height: 70px;
+}
+#HP
+{
+    border: solid;    
+    float: right;
+    height: 35px;
+    margin-right: 200px;
+
+}
+#HP_Wrap
+{
+    height: 50px;    
+}
 #inputBox
 {
-    width : 15vw;
-    height: 3vh;
+    width : 220px;
+    height: 25px;
+    font-size : 20px;
+}
+
+.blood
+{    
+    width: 30px;
+    border-right: solid 1px;
+    background: #FE2E2E;
+    display: inline-block;
+    height: 35px;
+    float: left;
+ 
 }
 .word
 {
-    border: 0.1vw solid #73AD21;
-    font-size : 3vh;
-    width : 6vw;
+    border: 1px solid #73AD21;
+    font-size : 25px;
     position: absolute;
+}
+.header-side
+{
+    text-align : center;
+    font-size: 25px;
 }
 .blocks{
     width: 100px;
@@ -38,3 +79,4 @@
     text-align: center;
     font-size: 30px;
   }
+
