@@ -1,0 +1,33 @@
+#title
+{
+    text-align: center;
+    font-size: 6vh;
+    font-weight: bold;
+}
+#main
+{
+    border: solid;
+    height: 70vh;    
+    margin-left: 10vw;
+    margin-top: 1vh;
+    text-align: center;
+    width : 80vw;    
+}
+#footer
+{
+    margin-top : 2vh;
+    text-align: center;
+}
+#inputBox
+{
+    width : 15vw;
+    height: 3vh;
+}
+.word
+{
+    border: 0.1vw solid #73AD21;
+    font-size : 3vh;
+    width : 6vw;
+    position: absolute;
+​
+}
