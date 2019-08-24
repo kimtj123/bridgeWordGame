@@ -42,7 +42,13 @@ function myEndFunction() {
     $('#HP')[0].children[0].remove();
 
     if( $('#HP')[0].children.length === 0){
-        alert('생명이 모두 소진되어 게임종료');
+        var answer = window.confirm(stage+'에서 생명이 모두 소진되어 패배! 1라운드 부터 다시 하시겠습니까?');
+        if (answer) {
+            // 다음라운드로
+            alert('to stage1');
+        } else {
+            // Do nothing!
+        }
         $('.blocks').remove();
         power = false;
     }
@@ -58,10 +64,10 @@ window.addEventListener('load', function () {
         var fallSec = 5;
         if(power === false){
             clearInterval(gameLoop);
+        }else{
+            eval('var block'+cnt +'= new Block(word,fallSec)');    
+            cnt++;   
         }  
-        eval('var block'+cnt +'= new Block(word,fallSec)');    
-        cnt++;
-
     }, 1000);
 
 })
