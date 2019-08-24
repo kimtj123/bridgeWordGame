@@ -46,6 +46,9 @@ function myEndFunction() {
         if (answer) {
             // 다음라운드로
             alert('to stage1');
+            stage++;
+            //블러드팩 색상 원래대로 변환
+            gameLoopWithCountReset(stage);
         } else {
             // Do nothing!
         }
@@ -54,14 +57,11 @@ function myEndFunction() {
     }
 
   }
-
-
-
-window.addEventListener('load', function () {
+  function gameLoopWithCountReset(stage) {
     var cnt = 1;
     var gameLoop = setInterval(function () {
         var word = wordList.shift();
-        var fallSec = 5;
+        var fallSec = 5-stage;
         if(power === false){
             clearInterval(gameLoop);
         }else{
@@ -70,5 +70,8 @@ window.addEventListener('load', function () {
         }  
     }, 1000);
 
-})
+}
+
+
+window.addEventListener('load', gameLoopWithCountReset(1));
 
