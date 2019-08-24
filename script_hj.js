@@ -1,8 +1,9 @@
 var main = document.getElementById('main');
-var wordList = ['가나', '다라', '마바', '사아', '자차', '카타', '파하'];
+var wordList = ['가나다', '다라', '마바', '사아', '자차', '카타', '파하'];
 
 function Block(word,fallSec) {
     this.element = document.createElement('div');
+
     let ele = this.element;
     ele.className = 'blocks';
     ele.innerText = word;
@@ -11,13 +12,11 @@ function Block(word,fallSec) {
     ele.style.display = 'inline-block';
     ele.style.position = 'absolute';
    // console.log(this);
- 
     ele.style.WebkitAnimation = "mymove "+fallSec+'s'; // Code for Chrome, Safari and Opera
     ele.animation = "mymove "+fallSec+'s';     // Standard syntax
     ele.addEventListener("webkitAnimationEnd", myEndFunction);
     //ele.style.animation-timing-function = 'linear';
     main.appendChild(this.element);
-     
 }
 
 
@@ -48,9 +47,11 @@ window.addEventListener('load', function () {
     var cnt = 1;
     setInterval(function () {
         var word = wordList.shift();
+
         var fallSec = 3;
         eval('var block'+cnt +'= new Block(word,fallSec)');      
         cnt++;
     }, 1000);
+
 })
 
