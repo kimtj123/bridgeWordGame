@@ -1,6 +1,6 @@
 var main = document.getElementById('main');
 var wordList = ['가나다', '다라', '마바', '사아', '자차', '카타', '파하'];
-
+var power = true;
 function Block(word,fallSec) {
     this.element = document.createElement('div');
 
@@ -37,20 +37,31 @@ Block.prototype.setZindex =function(num){
     this.element.style.zIndex =num;
 }
 function myEndFunction() {
-    console.log('end');
+    console.log('block reached bottom');
     this.remove();
+    $('#HP')[0].children[0].remove();
+
+    if( $('#HP')[0].children.length === 0){
+        alert('생명이 모두 소진되어 게임종료');
+        $('.blocks').remove();
+        power = false;
+    }
+
   }
 
 
 
 window.addEventListener('load', function () {
     var cnt = 1;
-    setInterval(function () {
+    var gameLoop = setInterval(function () {
         var word = wordList.shift();
-
         var fallSec = 5;
-        eval('var block'+cnt +'= new Block(word,fallSec)');      
+        if(power === false){
+            clearInterval(gameLoop);
+        }  
+        eval('var block'+cnt +'= new Block(word,fallSec)');    
         cnt++;
+
     }, 1000);
 
 })
