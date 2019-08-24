@@ -1,5 +1,5 @@
 var main = document.getElementById('main');
-var wordList = [];
+var wordList = ['가나','다라','마바'];
 var power = true;
 function Block(word,fallSec) {
     this.element = document.createElement('div');
@@ -60,7 +60,7 @@ function myEndFunction() {
   function gameLoopWithCountReset(stage) {
     var cnt = 1;
     var gameLoop = setInterval(function () {
-        var word = wordList.shift();
+        var word = wordList.shift().trim();
         var fallSec = 5-stage;
         if(power === false){
             clearInterval(gameLoop);

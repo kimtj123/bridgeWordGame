@@ -56,10 +56,9 @@ function Timer()
 function searchWord() // input 값과 단어 값이 일치하면 삭제
 {
     var inputValue = document.getElementById('inputBox').value
-
+    
     for(let i = 0; i < blocks.length; i++)
-    {
-        //point = point + 10;
+    {     //point = point + 10;
         if(document.getElementById(inputValue) !== null){
             eval("$('#"+inputValue+"')")[0].remove();
             point += 10;
