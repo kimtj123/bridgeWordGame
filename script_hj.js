@@ -1,6 +1,8 @@
 var main = document.getElementById('main');
 var wordList = [];
 var power = true;
+var bloodIdx = 9
+
 function Block(word,fallSec) {
     this.element = document.createElement('div');
 
@@ -14,7 +16,7 @@ function Block(word,fallSec) {
    // console.log(this);
     ele.style.WebkitAnimation = "mymove "+fallSec+'s'; // Code for Chrome, Safari and Opera
     ele.animation = "mymove "+fallSec+'s';     // Standard syntax
-    ele.addEventListener("webkitAnimationEnd", myEndFunction);
+    ele.addEventListener("webkitAnimationEnd", myEndFunction); // 바닥에 닿으면 사라진다.
     //ele.style.animation-timing-function = 'linear';
     main.appendChild(this.element);
 }
@@ -39,18 +41,22 @@ Block.prototype.setZindex =function(num){
 function myEndFunction() {
     console.log('block reached bottom');
     this.remove();
-    $('#HP')[0].children[0].remove();
 
-    if( $('#HP')[0].children.length === 0){
+    $('#HP')[0].children[bloodIdx].style.background = 'white';
+    bloodIdx--
+ 
+    if( $('#HP')[0].children[0].style.background === 'white'){
         var answer = window.confirm(stage+'에서 생명이 모두 소진되어 패배! 1라운드 부터 다시 하시겠습니까?');
         if (answer) {
             // 다음라운드로
             alert('to stage1');
             stage++;
-            //블러드팩 색상 원래대로 변환
             gameLoopWithCountReset(stage);
-        } else {
-            // Do nothing!
+            // HP를 리셋하는 부분
+            HP.innerHTML = ''
+            BloodBlock();
+        } else {           
+            // Do nothing!      
         }
         $('.blocks').remove();
         power = false;
