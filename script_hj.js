@@ -1,5 +1,5 @@
 var main = document.getElementById('main');
-var wordList = ['가나다', '다라', '마바', '사아', '자차', '카타', '파하'];
+var wordList = [];
 var power = true;
 function Block(word,fallSec) {
     this.element = document.createElement('div');
@@ -73,5 +73,13 @@ function myEndFunction() {
 }
 
 
+
+
+window.addEventListener('load', function(){
+    fetch('wordnote.txt')
+  .then(response => response.text())
+  .then(text=>text = text.replace(/[0-9]/g, ''))
+  .then(text => wordList = text.split('\n'))
+});
 window.addEventListener('load', gameLoopWithCountReset(1));
 
