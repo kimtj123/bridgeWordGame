@@ -51,12 +51,17 @@ function searchWord() // input 값과 단어 값이 일치하면 삭제
 
     for(let i = 0; i < blocks.length; i++)
     {
-        point = point + 10;
-        if(inputValue === blocks[i].innerText)
-        {            
-            $('div').remove('.blocks')[i];            
+        //point = point + 10;
+        if(document.getElementById(inputValue) !== null){
+            eval("$('#"+inputValue+"')")[0].remove();
+            point += 10;
             score.innerText = "Score : " + point;
-        }        
+        }
+        // if(inputValue === blocks[i].innerText)
+        // {            
+        //     $('div').remove('.blocks')[i];            
+        //     score.innerText = "Score : " + point;
+        // }        
     }
     document.getElementById('inputBox').value =''
 

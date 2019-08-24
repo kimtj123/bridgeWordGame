@@ -48,7 +48,7 @@ window.addEventListener('load', function () {
     setInterval(function () {
         var word = wordList.shift();
 
-        var fallSec = 3;
+        var fallSec = 5;
         eval('var block'+cnt +'= new Block(word,fallSec)');      
         cnt++;
     }, 1000);
