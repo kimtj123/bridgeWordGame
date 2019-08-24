@@ -60,13 +60,13 @@ function searchWord() // input 값과 단어 값이 일치하면 삭제
     for(let i = 0; i < blocks.length; i++)
     {
         //point = point + 10;
-        if(document.getElementById(inputValue) !== null){
+        if(document.getElementById(inputValue) !== null){ // inputValue를 id로 한 엘레먼트가 존재한다면
             eval("$('#"+inputValue+"')")[0].remove();
             point += 10;
             score.innerText = "Score : " + point;
         }
         // if(inputValue === blocks[i].innerText)
-        // {            
+        // {                
         //     $('div').remove('.blocks')[i];            
         //     score.innerText = "Score : " + point;
         // }        
@@ -75,14 +75,7 @@ function searchWord() // input 값과 단어 값이 일치하면 삭제
 
 }
 //특정 위치값에 도달하면 게이지를 하얗게 만들려고 했으나 진행중
-function removeBlood()
-{
-    if($('div.blocks:eq(0)').offset().top > 700)
-    {
-        console.log($('div.blocks:eq(0)').offset().top)
-        blood[0].background = "white";
-    }
-}
+
 var startTimer = setInterval(Timer,1000)
 BloodBlock();
 /*
