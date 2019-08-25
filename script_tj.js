@@ -5,7 +5,7 @@ const blocks = document.getElementsByClassName('blocks');
 const score = document.getElementsByClassName('header-side')[0];
 var stage = 1;
 
-let timeNumber = 5; // 시간
+let timeNumber = 30; // 시간
 let point = 0; // 점수
 
 function BloodBlock()

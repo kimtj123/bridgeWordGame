@@ -1,7 +1,10 @@
 var main = document.getElementById('main');
 var wordList = ['가나','다라','마바'];
 var power = true;
+var word = '';
 var bloodIdx = 9
+var uniqueArray = []; // arr no space
+var finalArray = []; // arr no duplicate
 
 function Block(word,fallSec) {
     this.element = document.createElement('div');
@@ -66,7 +69,7 @@ function myEndFunction() {
   function gameLoopWithCountReset(stage) {
     var cnt = 1;
     var gameLoop = setInterval(function () {
-        var word = wordList.shift().trim();
+       word = finalArray.splice(Math.floor(Math.random()*finalArray.length),1);
         var fallSec = 5-stage;
         if(power === false){
             clearInterval(gameLoop);
@@ -86,6 +89,15 @@ window.addEventListener('load', function(){
   .then(response => response.text())
   .then(text=>text = text.replace(/[0-9]/g, ''))
   .then(text => wordList = text.split('\n'))
+  .then(function(){
+     uniqueArray = wordList.map(function(value,index){
+        return value.trim();
+    })
+})
+  .then(function(){
+     finalArray = uniqueArray.filter(function(value, index) {
+    return uniqueArray.indexOf(value) === index;}) 
+  })
 });
 window.addEventListener('load', gameLoopWithCountReset(1));
 
