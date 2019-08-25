@@ -82,7 +82,7 @@ function myEndFunction() {
 }
 
 function beforeStart(sec){
-    return new Promise(function(resolve,reject){
+    // return new Promise(function(resolve,reject){
         var countdown = document.createElement('div');
         countdown.setAttribute("id", "countdown");
         countdown.innerText = sec;
@@ -95,10 +95,10 @@ function beforeStart(sec){
               clearInterval(minusCount);
               countdown.remove();
               gameLoopWithCountReset(1);
-              var startTimer = setInterval(Timer,1000)
+              var startTimer = setInterval(Timer,1000);              
           }          
         }, 1000)  
-    })
+    // })
 }
 
 
@@ -122,6 +122,7 @@ window.addEventListener('load', function(){
 
 window.addEventListener('load', function(){
     beforeStart(5);
+    document.getElementById("inputBox").focus();
     // gameLoopWithCountReset(1);
 });
 // window.addEventListener('load', gameLoopWithCountReset(1));
