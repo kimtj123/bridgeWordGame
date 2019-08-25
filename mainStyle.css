@@ -85,14 +85,28 @@
 
   /* Chrome, Safari, Opera */
 @-webkit-keyframes mymove {
-    from {top: 100px;}
+    from {top: 120px;}
     to {top: 750px;}
   }
   
   @keyframes mymove {
-    from {top: 100px;}
+    from {top: 120px;}
     to {top: 760px;}
   }
+
+ #countdown{
+    position : absolute;
+    top : 300px;
+    width : 200px;
+    height : 200px;
+    border : solid white 5px;
+    z-index: 3;
+    margin-left: 650px;
+    background-color: black;
+    font-size: 40px;
+    color : white;
+    line-height: 200px;
+ } 
 
   
 

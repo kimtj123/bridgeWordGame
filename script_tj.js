@@ -76,7 +76,8 @@ function searchWord() // input 값과 단어 값이 일치하면 삭제
 }
 //특정 위치값에 도달하면 게이지를 하얗게 만들려고 했으나 진행중
 
-var startTimer = setInterval(Timer,1000)
+//var startTimer = setInterval(Timer,1000)
+// hj 98번 라인으로 그대로 옮겼습니다. 카운트다운 사라지면 실행되도록 했습니다
 BloodBlock();
 /*
 while(blood[0].style.background !== "white")

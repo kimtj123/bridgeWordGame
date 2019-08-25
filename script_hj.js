@@ -81,6 +81,26 @@ function myEndFunction() {
 
 }
 
+function beforeStart(sec){
+    return new Promise(function(resolve,reject){
+        var countdown = document.createElement('div');
+        countdown.setAttribute("id", "countdown");
+        countdown.innerText = sec;
+        main.appendChild(countdown);
+        var minusCount = setInterval(
+            function(){
+          if(countdown.innerText != 0){
+            countdown.innerText -= 1; 
+          }else{
+              clearInterval(minusCount);
+              countdown.remove();
+              gameLoopWithCountReset(1);
+              var startTimer = setInterval(Timer,1000)
+          }          
+        }, 1000)  
+    })
+}
+
 
 
 
@@ -99,5 +119,10 @@ window.addEventListener('load', function(){
     return uniqueArray.indexOf(value) === index;}) 
   })
 });
-window.addEventListener('load', gameLoopWithCountReset(1));
+
+window.addEventListener('load', function(){
+    beforeStart(5);
+    // gameLoopWithCountReset(1);
+});
+// window.addEventListener('load', gameLoopWithCountReset(1));
 
