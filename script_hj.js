@@ -60,9 +60,9 @@ function myEndFunction() { //블록에 걸리는 이벤트. 블록 각각에 걸
   }
   function gameLoopWithCountReset() {
     var gameLoop = setInterval(function () {
-        console.log('gameloop 돕니다,stage:',stage);
+        //console.log('gameloop 돕니다,stage:',stage);
        word = wordList.splice(Math.floor(Math.random()*wordList.length),1);
-       console.log('stage in countreset',stage);
+       //console.log('stage in countreset',stage);
         var fallSec = 6-stage;
         if(timeNumber === 0 && $('.blocks').length !== 0&&$('#HP')[0].children[0].style.background !== 'white'){   //시간 다 되고,블록 있을 때 -> CLEAR/FAIL전부 되잖아?? ->통과했을때만
             console.log('시간다됨');
@@ -95,7 +95,7 @@ function myEndFunction() { //블록에 걸리는 이벤트. 블록 각각에 걸
             clearInterval(gameLoop);   
         }else{
             if(typeof(countdown) === "undefined"){ //countdown 객체 없을때 
-                console.log('아직 시간남음',timeNumber);
+                //console.log('아직 시간남음',timeNumber);
             
                 if(timeNumber.length !== 1){
                     time.innerText = 'Time 0:'+timeNumber 
@@ -110,7 +110,7 @@ function myEndFunction() { //블록에 걸리는 이벤트. 블록 각각에 걸
                 }
                 timeNumber--;
         eval('var block'+cnt +'= new Block(word,fallSec)');    
-                console.log('block생성 남은시간:',timeNumber,'난이도:',stage);
+               // console.log('block생성 남은시간:',timeNumber,'난이도:',stage);
         cnt++; 
             }  
         }  
@@ -119,22 +119,18 @@ function myEndFunction() { //블록에 걸리는 이벤트. 블록 각각에 걸
 }
 
 function beforeStart(stage){
-    // return new Promise(function(resolve,reject){
         $('#header-stage')[0].innerText = 'Stage : '+stage;
         timeNumber = 20; 
         var countdown = document.createElement('div');
         countdown.setAttribute("id", "countdown");
         countdown.innerText = 5;
-        console.log('countdown number5로 바꿨는데? :',countdown.innerText);
-        eval(`console.log($('countdown').data('events'))`);
+       // console.log('countdown number5로 바꿨는데? :',countdown.innerText);
         main.appendChild(countdown);
         var minusCount = setInterval(
             function(){
           if(countdown.innerText != 0){
-            console.log('countdown number :',countdown.innerText);
             countdown.innerText -= 1; 
           }else{  
-              console.log('countdown number가 0이라고? :',countdown.innerText);
               clearInterval(minusCount);
               countdown.remove();
               timeNumber = 20;    
@@ -142,7 +138,6 @@ function beforeStart(stage){
               gameLoopWithCountReset();              
           }          
         }, 1000)  
-    // })
 }
 
 window.addEventListener('load', function(){
@@ -155,6 +150,5 @@ window.addEventListener('load', function(){
 
 window.addEventListener('load', function(){
     beforeStart(stage);
-    console.log('onloadEvent');
     document.getElementById("inputBox").focus();
 });
