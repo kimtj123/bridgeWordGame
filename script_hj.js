@@ -62,6 +62,21 @@ function myEndFunction() {
         $('.blocks').remove();
         power = false;
     }
+    else if(timeNumber === 0)
+    {
+        console.log('Check!')
+        time.innerText = 'Time 0:0'+timeNumber       
+        clearInterval(startTimer);
+        var answer = window.confirm(stage+'스테이지 클리어! 다음 라운드로 넘어가시겠습니까?');
+        if (answer) {
+            // 다음라운드로
+            alert('go!');
+        } else {
+            // Do nothing!
+        }
+    }
+
+    
 
   }
   function gameLoopWithCountReset(stage) {
