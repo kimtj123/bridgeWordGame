@@ -1,5 +1,5 @@
 var main = document.getElementById('main');
-var wordList = ['가나','다라','마바'];
+var wordList = [];
 var word = '';
 var bloodIdx = 9;
 var stage = 1;
