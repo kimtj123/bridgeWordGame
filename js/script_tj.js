@@ -96,12 +96,12 @@ function finalScore()
 
 function goToWordGames()
 {    
-    location.href = "wordGames.html"   
+    location.href = "../wordGames.html"   
 }
 function goToFinalScore()
 {   
     
-    location.href = "finalScore.html"
+    location.href = "../finalScore.html"
     finalScore();
 }
 

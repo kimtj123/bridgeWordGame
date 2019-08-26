@@ -52,7 +52,7 @@ function myEndFunction() { //블록에 걸리는 이벤트. 블록 각각에 걸
         if (answer) {
             location.reload();
         } else {           
-            location.href = 'startpage.html';
+            location.href = '../startpage.html';
         }
      
     }
@@ -72,11 +72,9 @@ function myEndFunction() { //블록에 걸리는 이벤트. 블록 각각에 걸
                     if(stage == 4){
                             let finalAnswer = window.confirm(`최종 4스테이지까지 클리어! 점수: ${point} \n 축하 페이지로 이동하시겠습니까?`);
                         if(finalAnswer){ 
-                            alert(75);
-                            location.href = 'celebration.html'; 
+                            location.href = '../celebration.html'; 
                         }else{
-                            alert(78);
-                            location.href = 'startpage.html';
+                            location.href = '../startpage.html';
                         }
                         
                     }else{
@@ -88,7 +86,7 @@ function myEndFunction() { //블록에 걸리는 이벤트. 블록 각각에 걸
                             beforeStart(stage);
                             document.getElementById("inputBox").focus();
                         } else {
-                            location.href = 'startpage.html';
+                            location.href = '../startpage.html';
                         }  
                     }
                    
@@ -141,7 +139,7 @@ function beforeStart(stage){
 }
 
 window.addEventListener('load', function(){
-    fetch('wordnote.txt')
+    fetch('../etc/wordnote.txt')
   .then(response => response.text())
   .then(text=>text = text.replace(/[0-9,\r]/g, ''))
   .then(text => wordList = text.split('\n'))
