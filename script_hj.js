@@ -121,6 +121,7 @@ function myEndFunction() { //블록에 걸리는 이벤트. 블록 각각에 걸
 function beforeStart(stage){
     // return new Promise(function(resolve,reject){
         timeNumber = 10; 
+        gameLoop = function(){}();
         var countdown = document.createElement('div');
         countdown.setAttribute("id", "countdown");
         countdown.innerText = 5;
@@ -157,5 +158,6 @@ window.addEventListener('load', function(){
 
 window.addEventListener('load', function(){
     beforeStart(stage);
+    console.log('onloadEvent');
     document.getElementById("inputBox").focus();
 });
