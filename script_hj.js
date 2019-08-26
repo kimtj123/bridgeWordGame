@@ -70,7 +70,13 @@ function myEndFunction() { //블록에 걸리는 이벤트. 블록 각각에 걸
             time.innerText = 'Time 0:00';  
                     clearInterval(gameLoop);
                     if(stage == 4){
-                        location.href = 'startpage.html';
+                        let finalAnswer = window.confirm(`최종 4스테이지까지 클리어! 점수: ${point} \n 축하 페이지로 이동하시겠습니까?`);
+                        if(answer){
+                            location.href = 'startpage.html';
+                        }else{
+                            location.href = 'startpage.html';
+                        }
+                        
                     }else{
                         var answer = window.confirm(stage+'스테이지 클리어! 점수:'+point+'\n 다음 라운드로 넘어가시겠습니까?');
                         if (answer) {
