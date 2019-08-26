@@ -11,7 +11,7 @@
   
 
 </head>
-</body>
+<body>
     <div id = 'header'>
         <div class = 'header-side'>Score : 0</div>
         <div id = 'title'>WordGame</div> 
@@ -26,8 +26,8 @@
             </div>
         </div>
         <div>
-            <input id = "inputBox" type="text" onKeypress="javascript:if(event.keyCode==13){searchWord()}"/>
-            <!--아스키코드의 13번째는 Enter Key  이다.-->
+            <input id = "inputBox" type="text" onKeypress="javascript:if(event.keyCode===13){searchWord()}"/>
+            <!--아스키코드의 13번째는 Enter Key이다.-->
         </div>
     </div>
 <script src="script_hj.js"></script>

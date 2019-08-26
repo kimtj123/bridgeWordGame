@@ -62,7 +62,7 @@ function myEndFunction() { //블록에 걸리는 이벤트. 블록 각각에 걸
             BloodBlock();
             beforeStart(stage);
         } else {           
-            // Do nothing!      
+            goToFinalScore();
         }
         $('.blocks').remove();
         power = false;
