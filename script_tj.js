@@ -23,9 +23,9 @@ function BloodBlock()
     }
 }
 
-function Timer() 
-{
-    time.innerText = 'Time 0:'+timeNumber
+// function Timer() 
+// {
+//     time.innerText = 'Time 0:'+timeNumber
 
     if(timeNumber !== 0)
     {
@@ -53,6 +53,7 @@ function Timer()
         }
     }  
 }
+
 
 function searchWord() // input 값과 단어 값이 일치하면 삭제
 {
