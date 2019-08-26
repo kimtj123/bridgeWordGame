@@ -72,6 +72,7 @@ function myEndFunction() { //블록에 걸리는 이벤트. 블록 각각에 걸
   function gameLoopWithCountReset(stage) {
     var cnt = 1;
     var gameLoop = setInterval(function () {
+        console.log('gameloop 돕니다,stage:',stage);
        word = wordList.splice(Math.floor(Math.random()*wordList.length),1);
        console.log('stage in countreset',stage);
         var fallSec = 5-stage;
