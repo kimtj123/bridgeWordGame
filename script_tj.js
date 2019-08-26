@@ -3,11 +3,11 @@ const time = document.getElementsByClassName('header-side')[1];
 const blood = document.getElementsByClassName('blood');
 const blocks = document.getElementsByClassName('blocks');
 const score = document.getElementsByClassName('header-side')[0];
-var stage = 1;
 
-let timeNumber = 5; // 시간
+let stage = 1;
 let point = 0; // 점수
-
+let timeNumber = 5; // 시간
+ 
 function BloodBlock()
 {
     for(let i = 0; i < 10; i++)
@@ -49,7 +49,7 @@ function Timer()
             // 다음라운드로
             alert('go!');
         } else {
-            // Do nothing!
+            goToFinalScore();      
         }
     }  
 }
@@ -57,31 +57,43 @@ function Timer()
 function searchWord() // input 값과 단어 값이 일치하면 삭제
 {
     var inputValue = document.getElementById('inputBox').value
-    
+
     for(let i = 0; i < blocks.length; i++)
-    {     //point = point + 10;
+    {     //point = point + 10;        
         if(document.getElementById(inputValue) !== null){
 
             eval("$('#"+inputValue+"')")[0].remove();
             point += 10;
             score.innerText = "Score : " + point;
-        }
-        // if(inputValue === blocks[i].innerText)
-        // {                
-        //     $('div').remove('.blocks')[i];            
-        //     score.innerText = "Score : " + point;
-        // }        
+            console.log("searchWord : "+point)
+            document.getElementById('inputBox').value =''            
+        }        
     }
-    document.getElementById('inputBox').value =''
-
+    console.log(point);    
 }
-//특정 위치값에 도달하면 게이지를 하얗게 만들려고 했으나 진행중
 
-//var startTimer = setInterval(Timer,1000)
+function finalScore()
+{
+    var scoreShow = document.getElementById('Score');
+    var buttons = document.getElementsByClassName('multipleChoice');
+    console.log("finalScore : "+point)
+    scoreShow.innerText = "당신의 점수는 " + point + "점 입니다."
+    buttons[0].onclick = goToWordGames
+    buttons[1].onclick = function(){
+        window.close()
+    }    
+}
+
+
+function goToWordGames()
+{    
+    location.href = "wordGames.html"   
+}
+function goToFinalScore(point)
+{
+    location.href = "finalScore.html"
+    finalScore(point);
+}
+
 // hj 98번 라인으로 그대로 옮겼습니다. 카운트다운 사라지면 실행되도록 했습니다
 BloodBlock();
-/*
-while(blood[0].style.background !== "white")
-{
-    removeBlood();
-}*/

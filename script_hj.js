@@ -3,7 +3,6 @@ var wordList = ['가나','다라','마바'];
 var power = true;
 var word = '';
 var bloodIdx = 9
-
 function Block(word,fallSec) {
     this.element = document.createElement('div');
 
@@ -57,7 +56,7 @@ function myEndFunction() {
             HP.innerHTML = ''
             BloodBlock();
         } else {           
-            // Do nothing!      
+            goToFinalScore();
         }
         $('.blocks').remove();
         power = false;
