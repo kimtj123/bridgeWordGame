@@ -48,11 +48,11 @@ function myEndFunction() { //블록에 걸리는 이벤트. 블록 각각에 걸
  
     if( $('#HP')[0].children[0].style.background === 'white'){
         timeNumber = 0;    
-        var answer = window.confirm(stage+'에서 생명이 모두 소진되어 패배! 1라운드 부터 다시 하시겠습니까?');
+        stage ++;
+        var answer = window.confirm(stage+'라운드에서 생명이 모두 소진되어 패배! 1라운드 부터 다시 하시겠습니까?');
         if (answer) {
             console.log('-----------------------restart 1 stage');
             // 1라운드로
-            alert('to stage1');
             gameLoop = function(){}();
             console.log(gameLoop);
             stage = 1;
@@ -76,20 +76,19 @@ function myEndFunction() { //블록에 걸리는 이벤트. 블록 각각에 걸
        word = wordList.splice(Math.floor(Math.random()*wordList.length),1);
        console.log('stage in countreset',stage);
         var fallSec = 5-stage;
-        if(timeNumber === 0 && $('.blocks').length !== 0){
+        if(timeNumber === 0 && $('.blocks').length !== 0&&$('#HP')[0].children[0].style.background !== 'white'){   //시간 다 되고,블록 있을 때 -> CLEAR/FAIL전부 되잖아?? ->통과했을때만
             $('.blocks').remove();
             time.innerText = 'Time 0:00';  
                     clearInterval(gameLoop);
                     var answer = window.confirm(stage+'스테이지 클리어! 다음 라운드로 넘어가시겠습니까?');
                     if (answer) {
                         // 다음라운드로
-                        alert('go!');
                         console.log('--------startnewstage');
                         stage++;
                         beforeStart(stage);
                         document.getElementById("inputBox").focus();
                     } else {
-                        // Do nothing!
+                        goToFinalScore(); 
                     }
             clearInterval(gameLoop);   
             gameLoop = function(){}();
