@@ -46,14 +46,15 @@ function myEndFunction() { //블록에 걸리는 이벤트. 블록 각각에 걸
     bloodIdx--
  
     if( $('#HP')[0].children[0].style.background === 'white'){
+        $('.blocks').remove();
         timeNumber = 0;    
         var answer = window.confirm(stage+'라운드에서 생명이 모두 소진되어 패배!\n점수: '+point+', 처음부터 다시 하시겠습니까?');
         if (answer) {
             location.reload();
         } else {           
-            goToFinalScore();
+            location.href = 'startpage.html';
         }
-        $('.blocks').remove();
+     
     }
 
   }
@@ -68,16 +69,21 @@ function myEndFunction() { //블록에 걸리는 이벤트. 블록 각각에 걸
             $('.blocks').remove();
             time.innerText = 'Time 0:00';  
                     clearInterval(gameLoop);
-                    var answer = window.confirm(stage+'스테이지 클리어! 다음 라운드로 넘어가시겠습니까?');
-                    if (answer) {
-                        // 다음라운드로
-                        console.log('--------startnewstage');
-                        stage++;
-                        beforeStart(stage);
-                        document.getElementById("inputBox").focus();
-                    } else {
-                        goToFinalScore(); 
+                    if(stage == 4){
+                        location.href = 'startpage.html';
+                    }else{
+                        var answer = window.confirm(stage+'스테이지 클리어! 점수:'+point+'\n 다음 라운드로 넘어가시겠습니까?');
+                        if (answer) {
+                            // 다음라운드로
+                            console.log('--------startnewstage');
+                            stage++;
+                            beforeStart(stage);
+                            document.getElementById("inputBox").focus();
+                        } else {
+                            location.href = 'startpage.html';
+                        }  
                     }
+                   
             clearInterval(gameLoop);   
         }else{
             if(typeof(countdown) === "undefined"){ //countdown 객체 없을때 
@@ -107,7 +113,7 @@ function myEndFunction() { //블록에 걸리는 이벤트. 블록 각각에 걸
 function beforeStart(stage){
     // return new Promise(function(resolve,reject){
         $('#header-stage')[0].innerText = 'Stage : '+stage;
-        timeNumber = 10; 
+        timeNumber = 20; 
         var countdown = document.createElement('div');
         countdown.setAttribute("id", "countdown");
         countdown.innerText = 5;
@@ -123,7 +129,7 @@ function beforeStart(stage){
               console.log('countdown number가 0이라고? :',countdown.innerText);
               clearInterval(minusCount);
               countdown.remove();
-              timeNumber = 10;    
+              timeNumber = 20;    
               console.log('gameLoopWithCountRest',stage);
               gameLoopWithCountReset();              
           }          

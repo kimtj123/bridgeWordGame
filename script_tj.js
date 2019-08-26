@@ -6,7 +6,7 @@ const score = document.getElementsByClassName('header-side')[0];
 
 
 var point = 0; // 점수
-var timeNumber = 5; // 시간
+var timeNumber = 20; // 시간
  
 function BloodBlock()
 {
@@ -59,8 +59,7 @@ function searchWord() // input 값과 단어 값이 일치하면 삭제
 {
     var inputValue = document.getElementById('inputBox').value
 
-    for(let i = 0; i < blocks.length; i++)
-    {     //point = point + 10;        
+        //point = point + 10;        
         if(document.getElementById(inputValue) !== null){
            main.style.border = 'solid 3px blue';
             setTimeout(() => {
@@ -70,9 +69,15 @@ function searchWord() // input 값과 단어 값이 일치하면 삭제
             point += 10;
             score.innerText = "Score : " + point;
             console.log("searchWord : "+point)
-            document.getElementById('inputBox').value =''            
+            document.getElementById('inputBox').value ='';            
+        }else{
+            document.getElementById('inputBox').value ='';   
+            main.style.border = 'solid 3px red';
+            setTimeout(() => {
+                main.style.border = '';
+            }, 500);
         }        
-    }
+    
     console.log(point);    
 }
 

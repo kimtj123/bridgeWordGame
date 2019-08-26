@@ -99,7 +99,6 @@
     from {top: 120px;}
     to {top: 760px;}
   }
-  @keyframes blinker { 50% {opacity:0;} }
 
  #countdown{
     position : absolute;
