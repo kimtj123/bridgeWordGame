@@ -5,7 +5,7 @@ const blocks = document.getElementsByClassName('blocks');
 const score = document.getElementsByClassName('header-side')[0];
 var stage = 1;
 
-let timeNumber = 30; // 시간
+let timeNumber = 5; // 시간
 let point = 0; // 점수
 
 function BloodBlock()
@@ -39,18 +39,6 @@ function Timer()
         }
         timeNumber--;
     }    
-    else
-    {
-        time.innerText = 'Time 0:0'+timeNumber
-        clearInterval(startTimer);
-        var answer = window.confirm(stage+'스테이지 클리어! 다음 라운드로 넘어가시겠습니까?');
-        if (answer) {
-            // 다음라운드로
-            alert('go!');
-        } else {
-            // Do nothing!
-        }
-    }
 }
 
 function searchWord() // input 값과 단어 값이 일치하면 삭제
