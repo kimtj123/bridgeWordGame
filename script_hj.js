@@ -63,17 +63,19 @@ function myEndFunction() { //블록에 걸리는 이벤트. 블록 각각에 걸
         console.log('gameloop 돕니다,stage:',stage);
        word = wordList.splice(Math.floor(Math.random()*wordList.length),1);
        console.log('stage in countreset',stage);
-        var fallSec = 5-stage;
+        var fallSec = 6-stage;
         if(timeNumber === 0 && $('.blocks').length !== 0&&$('#HP')[0].children[0].style.background !== 'white'){   //시간 다 되고,블록 있을 때 -> CLEAR/FAIL전부 되잖아?? ->통과했을때만
             console.log('시간다됨');
             $('.blocks').remove();
             time.innerText = 'Time 0:00';  
                     clearInterval(gameLoop);
                     if(stage == 4){
-                        let finalAnswer = window.confirm(`최종 4스테이지까지 클리어! 점수: ${point} \n 축하 페이지로 이동하시겠습니까?`);
-                        if(answer){
-                            location.href = 'startpage.html';
+                            let finalAnswer = window.confirm(`최종 4스테이지까지 클리어! 점수: ${point} \n 축하 페이지로 이동하시겠습니까?`);
+                        if(finalAnswer){ 
+                            alert(75);
+                            location.href = 'celebration.html'; 
                         }else{
+                            alert(78);
                             location.href = 'startpage.html';
                         }
                         

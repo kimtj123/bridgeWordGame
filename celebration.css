@@ -1,0 +1,44 @@
+body 
+{
+    padding: 30px;
+    background-image: url(celebration.jpg);
+}
+
+p 
+{
+    margin-top: 25vh;
+    margin-bottom: 0;
+    padding: 3vh;
+    font-size: 9vh;
+    font-weight: bold;
+    text-align: center;    
+}
+#wrapper
+{
+    background-color: rgba( 255, 255, 255, 0.9 );
+    width: 100%;
+    text-align: center;
+}
+.multipleChoice
+{
+    width:15vh;
+    vertical-align: center;
+    background-color: #f8585b;
+    border: none;
+    border-radius:0.5em;
+    color:#fff;
+    cursor: pointer;
+    outline: none;
+    padding: 0.7em 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 1vh;    
+    margin-bottom: 3vh;
+}
+.multipleChoice:hover
+{
+    background-color: orange;
+}
