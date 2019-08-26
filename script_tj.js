@@ -62,7 +62,10 @@ function searchWord() // input 값과 단어 값이 일치하면 삭제
     for(let i = 0; i < blocks.length; i++)
     {     //point = point + 10;        
         if(document.getElementById(inputValue) !== null){
-
+           main.style.border = 'solid 3px blue';
+            setTimeout(() => {
+                main.style.border = '';
+            }, 500);
             eval("$('#"+inputValue+"')")[0].remove();
             point += 10;
             score.innerText = "Score : " + point;

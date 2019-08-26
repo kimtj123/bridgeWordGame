@@ -28,7 +28,7 @@
 #header div
 {
     display: inline-block;
-    width: 500px;
+    width: 250px;
     height: 70px;
 }
 #HP
@@ -56,7 +56,6 @@
     border-right: solid 1px;    
     display: inline-block;
     height: 35px;
-    float: left;
  
 }
 .word
@@ -67,8 +66,15 @@
 }
 .header-side
 {
+    margin-left : 100px;
     text-align : center;
     font-size: 25px;
+}
+#header-stage
+{
+    text-align : center;
+    font-size: 25px;
+    margin-right : 50px;
 }
 
 .blocks{
@@ -93,6 +99,7 @@
     from {top: 120px;}
     to {top: 760px;}
   }
+  @keyframes blinker { 50% {opacity:0;} }
 
  #countdown{
     position : absolute;
